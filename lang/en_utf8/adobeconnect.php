@@ -1,4 +1,4 @@
-<?php // $Id: adobeconnect.php,v 1.1.2.2 2010/03/03 18:04:40 arborrow Exp $
+<?php // $Id: adobeconnect.php,v 1.1.2.3 2010/03/04 21:38:15 adelamarre Exp $
 $string['actinbtngrp'] = '';
 $string['addparticipant'] = 'Add';
 $string['addpresenter']  = 'Add';
@@ -68,4 +68,7 @@ $string['usergrouprequired'] = 'This Meeting requires users to be in a group in 
 $string['adobeconnect:meetingpresenter'] = 'Meeting Presenter';
 $string['adobeconnect:meetingparticipant'] = 'Meeting Particpant';
 $string['adobeconnect:meetinghost'] = 'Meeting Host';
+
+// Error codes
+$string['emptyxml'] = 'Invalid XML was detected method: $a';
 ?>
