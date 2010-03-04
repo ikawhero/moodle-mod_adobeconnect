@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.1.2.2 2010/03/03 18:04:42 arborrow Exp $
+<?php  // $Id: lib.php,v 1.1.2.3 2010/03/04 20:17:28 mchurch Exp $
 
 require_once('locallib.php');
 
@@ -163,12 +163,12 @@ function adobeconnect_add_instance($adobeconnect) {
 
         if (!empty($meeting)) {
             $meeting = current($meeting);
-        }
 
         $record = new stdClass();
         $record->id = $recid;
         $record->meeturl = trim($meeting->url, '/');
         update_record('adobeconnect', $record);
+    }
     }
 
     aconnect_logout($aconnect);
@@ -296,7 +296,7 @@ function adobeconnect_update_instance($adobeconnect) {
 
             // Update each meeting instance
             if (!aconnect_update_meeting($aconnect, $meetingobj, $meetfldscoid)) {
-                print_object('DEBUG: error updating meeting');
+                debugging('error updating meeting', DEBUG_DEVELOPER);
             }
 
             if (empty($adobeconnect->meetingpublic)) {

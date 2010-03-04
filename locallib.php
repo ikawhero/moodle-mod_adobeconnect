@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.1.2.2 2010/03/03 18:04:42 arborrow Exp $
+<?php // $Id: locallib.php,v 1.1.2.3 2010/03/04 20:17:27 mchurch Exp $
 require_once('connect_class.php');
 
 define('ADOBE_VIEW_ROLE', 'view');
@@ -21,6 +21,7 @@ define('ADOBE_MEETPERM_PRIVATE', 2); // means the meeting is private, and only r
 function aconnect_login() {
     global $CFG;
 
+    try {
     $aconnect = new connect_class($CFG->adobeconnect_host,
                                   $CFG->adobeconnect_port,
                                   $CFG->adobeconnect_admin_login,
@@ -49,6 +50,11 @@ function aconnect_login() {
     }
 
     return $aconnect;
+
+    } catch (Exception $e) {
+        debugging("There was an error communicating with the Adobe Connect server. 22", DEBUG_DEVELOPER);
+        return false;
+    }
 }
 
 
