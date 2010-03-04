@@ -1,4 +1,4 @@
-$Id: README.txt,v 1.2 2010/03/04 13:44:47 mchurch Exp $
+$Id: README.txt,v 1.3 2010/03/04 19:47:59 adelamarre Exp $
 
 INSTALL INSTRUCTIONS
 =========================================
@@ -12,7 +12,7 @@ You will then be prompted to enter details about Adobe Connect Pro server.
 Once that is complete you can begin to create and administer meetings.
 
 
-Maintainer Contact information:
+Maintainer Contact information
 Company: Remote Learner
 Author: Akinsaya Delamarre
 Email: adelamarre@remote-learner.net
