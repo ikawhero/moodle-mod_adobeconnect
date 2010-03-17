@@ -1,10 +1,10 @@
-<?php // $Id: index.php,v 1.2 2010/03/17 17:22:26 adelamarre Exp $
+<?php // $Id: index.php,v 1.3 2010/03/17 20:59:14 adelamarre Exp $
 
 /**
  * This page lists all the instances of adobeconnect in a particular course
  *
- * @author  Your Name <your@email.address>
- * @version $Id: index.php,v 1.2 2010/03/17 17:22:26 adelamarre Exp $
+ * @author  Your Name Akinsaya Delamarre (adelamarre@remote-learner.net)
+ * @version $Id: index.php,v 1.3 2010/03/17 20:59:14 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
@@ -75,7 +75,7 @@ if (array_key_exists(0, $groups)) {
 
 foreach ($adobeconnects as $adobeconnect) {
     $group = $groupid;
-    
+
     if (0 == $adobeconnect->groupmode) {
         $group = '&amp;group=0';
     }
