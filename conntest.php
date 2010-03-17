@@ -1,4 +1,4 @@
-<?php // $Id: conntest.php,v 1.2 2010/03/17 17:22:26 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.3 2010/03/17 20:09:28 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');
@@ -17,6 +17,7 @@
     $port       = required_param('port', PARAM_INT);
     $username   = required_param('authUsername', PARAM_NOTAGS);
     $password   = required_param('authPassword', PARAM_NOTAGS);
+    $httpheader = required_param('authHTTPheader', PARAM_NOTAGS);
 
     $strtitle = get_string('connectiontesttitle', 'adobeconnect');
 
