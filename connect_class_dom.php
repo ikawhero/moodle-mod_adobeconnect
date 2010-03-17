@@ -1,4 +1,4 @@
-<?php // $Id: connect_class_dom.php,v 1.1.2.1 2010/03/17 17:19:28 adelamarre Exp $
+<?php // $Id: connect_class_dom.php,v 1.1.2.2 2010/03/17 20:13:40 adelamarre Exp $
 
 require_once('connect_class.php');
 

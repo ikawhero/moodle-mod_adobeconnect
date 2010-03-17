@@ -1,4 +1,4 @@
-<?php //$Id: mod_form.php,v 1.1.2.3 2010/03/17 17:19:28 adelamarre Exp $
+<?php //$Id: mod_form.php,v 1.1.2.4 2010/03/17 20:13:40 adelamarre Exp $
 
 /**
  * This file defines the main adobeconnect configuration form

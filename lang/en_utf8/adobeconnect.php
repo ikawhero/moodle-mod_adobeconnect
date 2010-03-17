@@ -1,7 +1,9 @@
-<?php // $Id: adobeconnect.php,v 1.1.2.4 2010/03/17 17:19:28 adelamarre Exp $
+<?php // $Id: adobeconnect.php,v 1.1.2.5 2010/03/17 20:13:40 adelamarre Exp $
 $string['actinbtngrp'] = '';
 $string['addparticipant'] = 'Add';
 $string['addpresenter']  = 'Add';
+$string['admin_httpauth'] = 'HTTP Authentication Header';
+$string['admin_httpauth_desc'] = 'The HTTP_AUTH_HEADER value used in your custom.ini';
 $string['admin_login'] = 'Admin Login';
 $string['admin_login_desc'] = 'Login for main admin account';
 $string['admin_password'] = 'Admin Password';
