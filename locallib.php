@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.4 2010/03/17 20:09:28 adelamarre Exp $
+<?php // $Id: locallib.php,v 1.5 2010/03/17 20:53:18 adelamarre Exp $
 require_once('connect_class.php');
 require_once('connect_class_dom.php');
 
@@ -29,7 +29,7 @@ function adobe_connection_test($host = '', $port = '', $username = '', $password
 
         echo "</p>One of the required parameters is blank: <br />".
              "Host: $host<br /> Port: $port<br /> Username: $username<br /> Password: $password".
-             "<br /> HTTP Herder: $httpheader</p>";
+             "<br /> HTTP Header: $httpheader</p>";
     }
 
     $messages = array();
