@@ -1,4 +1,4 @@
-<?php // $Id: meeting_detail_form.php,v 1.1.2.2 2010/03/03 18:04:41 arborrow Exp $
+<?php // $Id: meeting_detail_form.php,v 1.1.2.3 2010/03/17 17:19:27 adelamarre Exp $
 
 require_once($CFG->libdir.'/formslib.php');
 require_once($CFG->libdir.'/datalib.php');
@@ -41,7 +41,7 @@ class meeting_detail_form extends moodleform {
         $aconnect = aconnect_login();
 
         // Get the Meeting details
-        $meetfldscoid = aconnect_get_meeting_folder($aconnect);
+        $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
         $filter = array('filter-sco-id' => $scoid);
         $meeting = current(aconnect_meeting_exists($aconnect, $meetfldscoid, $filter));
 

@@ -1,4 +1,4 @@
-/* $Id: styles.php,v 1.1.2.2 2010/03/03 18:04:41 arborrow Exp $ */
+/* $Id: styles.php,v 1.1.2.3 2010/03/17 17:19:27 adelamarre Exp $ */
 
 .aconfldset fieldset legend {
     font-weight: bold;
