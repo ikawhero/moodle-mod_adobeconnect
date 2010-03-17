@@ -1,4 +1,4 @@
-<?php // $Id: conntest.php,v 1.1.2.2 2010/03/17 20:13:40 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.1.2.3 2010/03/17 20:57:26 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');
@@ -27,7 +27,7 @@
 
     print_string('conntestintro', 'adobeconnect');
 
-    adobe_connection_test($serverhost, $port, $username, $password);
+    adobe_connection_test($serverhost, $port, $username, $password, $httpheader);
 
     echo '<center>'. "\n";
     echo '<input type="button" onclick="self.close();" value="' . get_string('closewindow') . '" />';

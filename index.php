@@ -1,10 +1,10 @@
-<?php // $Id: index.php,v 1.1.2.4 2010/03/17 20:13:40 adelamarre Exp $
+<?php // $Id: index.php,v 1.1.2.5 2010/03/17 20:57:26 adelamarre Exp $
 
 /**
  * This page lists all the instances of adobeconnect in a particular course
  *
- * @author  Your Name <your@email.address>
- * @version $Id: index.php,v 1.1.2.4 2010/03/17 20:13:40 adelamarre Exp $
+ * @author  Your Name Akinsaya Delamarre
+ * @version $Id: index.php,v 1.1.2.5 2010/03/17 20:57:26 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
