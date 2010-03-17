@@ -1,11 +1,11 @@
-<?php // $Id: version.php,v 1.1 2010/03/03 16:39:51 arborrow Exp $
+<?php // $Id: version.php,v 1.2 2010/03/17 17:22:25 adelamarre Exp $
 
 /**
  * Code fragment to define the version of adobeconnect
  * This fragment is called by moodle_needs_upgrading() and /admin/index.php
  *
  * @author  Your Name <your@email.address>
- * @version $Id: version.php,v 1.1 2010/03/03 16:39:51 arborrow Exp $
+ * @version $Id: version.php,v 1.2 2010/03/17 17:22:25 adelamarre Exp $
  * @package mod/adobeconnect
  */
 

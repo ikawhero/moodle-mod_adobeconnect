@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.2 2010/03/04 13:44:47 mchurch Exp $
+<?php  // $Id: lib.php,v 1.3 2010/03/17 17:22:25 adelamarre Exp $
 
 require_once('locallib.php');
 
@@ -58,8 +58,7 @@ function adobeconnect_add_instance($adobeconnect) {
     }
 
     $aconnect = aconnect_login();
-    $meetfldscoid = aconnect_get_meeting_folder($aconnect);
-
+    $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
 
     $meeting = clone $adobeconnect;
 
@@ -164,11 +163,11 @@ function adobeconnect_add_instance($adobeconnect) {
         if (!empty($meeting)) {
             $meeting = current($meeting);
 
-            $record = new stdClass();
-            $record->id = $recid;
-            $record->meeturl = trim($meeting->url, '/');
-            update_record('adobeconnect', $record);
-        }
+        $record = new stdClass();
+        $record->id = $recid;
+        $record->meeturl = trim($meeting->url, '/');
+        update_record('adobeconnect', $record);
+    }
     }
 
     aconnect_logout($aconnect);
@@ -200,7 +199,7 @@ function adobeconnect_update_instance($adobeconnect) {
 
     $aconnect = aconnect_login();
 
-    $meetfldscoid = aconnect_get_meeting_folder($aconnect);
+    $meetfldscoid = aconnect_get_folder($aconnect, 'meetings');
 
     // Look for meetings whose names are similar
     $filter = array('filter-like-name' => $adobeconnect->name);
