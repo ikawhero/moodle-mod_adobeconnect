@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.1.2.6 2010/03/17 20:57:26 adelamarre Exp $
+<?php // $Id: locallib.php,v 1.1.2.7 2010/04/02 00:12:14 adelamarre Exp $
 require_once('connect_class.php');
 require_once('connect_class_dom.php');
 
@@ -19,7 +19,7 @@ define('ADOBE_MEETPERM_PUBLIC', 0); //means the Acrobat Connect meeting is publi
 define('ADOBE_MEETPERM_PROTECTED', 1); //means the meeting is protected, and only registered users and accepted guests can enter the room.
 define('ADOBE_MEETPERM_PRIVATE', 2); // means the meeting is private, and only registered users and participants can enter the room
 
-function adobe_connection_test($host = '', $port = '', $username = '', $password = '', $httpheader = '') {
+function adobe_connection_test($host = '', $port = '', $username = '', $password = '', $httpheader = '', $emaillogin) {
 
     if (empty($host) or
         empty($port) or
@@ -131,6 +131,7 @@ function adobe_connection_test($host = '', $port = '', $username = '', $password
 
                 //Test creating a meeting
                 $folderscoid = aconnect_get_folder($aconnectDOM, 'meetings');
+
                 $meeting = new stdClass();
                 $meeting->name = 'testmeetingtest';
                 $time = time();
@@ -153,6 +154,11 @@ function adobe_connection_test($host = '', $port = '', $username = '', $password
                 $user->firstname = 'testusertest';
                 $user->lastname = 'testusertest';
                 $user->email = 'testusertest@test.com';
+
+                if (!empty($emaillogin)) {
+                    $user->username = $user->email;
+                }
+
                 $skipdeletetest = false;
 
                 if (!($usrprincipal = aconnect_user_exists($aconnectDOM, $user))) {
