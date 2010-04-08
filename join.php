@@ -1,4 +1,4 @@
-<?php // $Id: join.php,v 1.1.2.5 2010/04/02 00:12:14 adelamarre Exp $
+<?php // $Id: join.php,v 1.1.2.6 2010/04/08 15:18:34 adelamarre Exp $
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/locallib.php');
 require_once(dirname(__FILE__).'/connect_class.php');
@@ -173,8 +173,7 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
         notice('You are not a participant for this meeting');
     } else {
 
-        $login = $USER->username;
-        $password  = $USER->username;
+        $login = $usrobj->username;
 
         $aconnect = new connect_class_dom($CFG->adobeconnect_host, $CFG->adobeconnect_port);
         $aconnect->request_http_header_login(1, $login);
