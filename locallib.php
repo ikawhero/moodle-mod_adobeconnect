@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.6 2010/04/02 00:03:55 adelamarre Exp $
+<?php // $Id: locallib.php,v 1.7 2010/04/12 22:17:13 adelamarre Exp $
 require_once('connect_class.php');
 require_once('connect_class_dom.php');
 
@@ -18,6 +18,8 @@ define('ADOBE_MEETING_POSTFIX', '- Meeting');
 define('ADOBE_MEETPERM_PUBLIC', 0); //means the Acrobat Connect meeting is public, and anyone who has the URL for the meeting can enter the room.
 define('ADOBE_MEETPERM_PROTECTED', 1); //means the meeting is protected, and only registered users and accepted guests can enter the room.
 define('ADOBE_MEETPERM_PRIVATE', 2); // means the meeting is private, and only registered users and participants can enter the room
+
+define('ADOBE_TMZ_LENGTH', 4);
 
 function adobe_connection_test($host = '', $port = '', $username = '', $password = '', $httpheader = '', $emaillogin) {
 
@@ -714,6 +716,50 @@ function aconnect_update_meeting_perm($aconnect, $meetingscoid, $perm) {
 
  }
 
+/** CONTRIB-1976
+ * This function adds a fraction of a second to the ISO 8601 date
+ * @param int $time unix timestamp
+ * @return mixed a string (ISO 8601) containing the decimal fraction of a second
+ * or false if it was not able to determine where to put it
+ */
+function aconnect_format_date_seconds($time) {
+
+    $newdate = false;
+    $date = date("c", $time);
+
+    $pos = strrpos($date, '-');
+    $length = strlen($date);
+
+    $diff = $length - $pos;
+
+    if (!(0 < $diff) and !(ADOBE_TMZ_LENGTH == $diff)) {
+        return false;
+    } else {
+
+        $firstpart = substr($date, 0, $pos);
+        $lastpart = substr($date, $pos);
+        $newdate = $firstpart . '.000' . $lastpart;
+
+        return $newdate;
+    }
+
+    $pos = strrpos($date, '+');
+    $length = strlen($date);
+
+    $diff = $length - $pos;
+
+    if (!(0 < $diff) and !(ADOBE_TMZ_LENGTH == $diff)) {
+        return false;
+    } else {
+
+        $firstpart = substr($date, 0, $pos);
+        $lastpart = substr($date, $pos);
+        $newdate = $firstpart . '.000' . $lastpart;
+
+        return $newdate;
+    }
+}
+
 /**
  * Creates a meeting
  * @param obj $aconnect connect_class object
@@ -723,12 +769,23 @@ function aconnect_update_meeting_perm($aconnect, $meetingscoid, $perm) {
  */
 function aconnect_create_meeting($aconnect, $meetingobj, $meetingfdl) {
     //date("Y-m-d\TH:i
+
+    $starttime = aconnect_format_date_seconds($meetingobj->starttime);
+    $endtime = aconnect_format_date_seconds($meetingobj->endtime);
+
+    if (empty($starttime) or empty($endtime)) {
+        $message = 'Failure (aconnect_find_timezone) in finding the +/- sign in the date timezone'.
+                    "\n".date("c", $meetingobj->starttime)."\n".date("c", $meetingobj->endtime);
+        debugging($message, DEBUG_DEVELOPER);
+        return false;
+    }
+
     $params = array('action' => 'sco-update',
                     'type' => 'meeting',
                     'name' => $meetingobj->name,
                     'folder-id' => $meetingfdl,
-                    'date-begin' => date("c",$meetingobj->starttime),
-                    'date-end' => date("c",$meetingobj->endtime)
+                    'date-begin' => $starttime,
+                    'date-end' => $endtime,
                     );
 
     if (!empty($meetingobj->meeturl)) {
