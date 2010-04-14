@@ -1,10 +1,10 @@
-<?php  // $Id: view.php,v 1.5 2010/04/14 15:21:30 adelamarre Exp $
+<?php  // $Id: view.php,v 1.6 2010/04/14 16:28:57 adelamarre Exp $
 
 /**
  * This page prints a particular instance of adobeconnect
  *
  * @author  Your Name <adelamarre@remote-learner.net>
- * @version $Id: view.php,v 1.5 2010/04/14 15:21:30 adelamarre Exp $
+ * @version $Id: view.php,v 1.6 2010/04/14 16:28:57 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
@@ -13,7 +13,6 @@
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/lib.php');
 require_once(dirname(__FILE__).'/locallib.php');
-require_once(dirname(__FILE__).'/meeting_detail_form.php');
 require_once(dirname(__FILE__).'/connect_class.php');
 require_once(dirname(__FILE__).'/connect_class_dom.php');
 
