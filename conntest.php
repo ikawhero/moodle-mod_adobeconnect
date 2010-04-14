@@ -1,4 +1,4 @@
-<?php // $Id: conntest.php,v 1.1.2.4 2010/04/02 00:12:13 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.1.2.5 2010/04/14 15:25:58 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');
@@ -14,7 +14,7 @@
     }
 
     $serverhost = required_param('serverURL', PARAM_NOTAGS);
-    $port       = required_param('port', PARAM_INT);
+    $port       = optional_param('port', 80, PARAM_INT);
     $username   = required_param('authUsername', PARAM_NOTAGS);
     $password   = required_param('authPassword', PARAM_NOTAGS);
     $httpheader = required_param('authHTTPheader', PARAM_NOTAGS);
