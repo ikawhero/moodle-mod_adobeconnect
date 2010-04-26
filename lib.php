@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.1.2.5 2010/03/17 20:13:39 adelamarre Exp $
+<?php  // $Id: lib.php,v 1.1.2.6 2010/04/26 23:45:09 adelamarre Exp $
 
 require_once('locallib.php');
 
@@ -73,6 +73,20 @@ function adobeconnect_add_instance($adobeconnect) {
 
         // Create the meeting for each group
         foreach($crsgroups as $crsgroup) {
+
+            // The teacher role if they don't already have one and
+            // Assign them to each group
+            if (!groups_is_member($crsgroup->id, $USER->id)) {
+                $roleid = get_field('role', 'id', 'shortname', 'editingteacher');
+
+                if (!user_has_role_assignment($USER->id, $roleid, $context->id)) {
+                    role_assign($roleid, $USER->id, 0, $context->id);
+                }
+
+                groups_add_member($crsgroup->id, $USER->id);
+
+            }
+
             $meeting->name = $adobeconnect->name . '_' . $crsgroup->name;
 
             if (!empty($adobeconnect->meeturl)) {
@@ -373,11 +387,8 @@ function adobeconnect_delete_instance($id) {
         aconnect_logout($aconnect);
     }
 
-
-    if (! delete_records('adobeconnect', 'id', $adobeconnect->id) and
-        ! delete_records('adobeconnect_meeting_groups', 'instanceid', $adobeconnect->id)) {
-        $result = false;
-    }
+    $result &= delete_records('adobeconnect', 'id', $adobeconnect->id);
+    $result &= delete_records('adobeconnect_meeting_groups', 'instanceid', $adobeconnect->id);
 
     return $result;
 }
