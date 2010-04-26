@@ -1,4 +1,4 @@
-<?php // $Id: Copy\040of\040assign.php,v 1.1 2010/04/23 22:34:52 adelamarre Exp $
+<?php // $Id: Copy\040of\040assign.php,v 1.2 2010/04/26 23:49:56 adelamarre Exp $
       // Script to assign users to contexts
 
     require_once('../../config.php');

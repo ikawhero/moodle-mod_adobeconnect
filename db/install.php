@@ -1,4 +1,4 @@
-<?php // $Id: install.php,v 1.1 2010/04/23 22:34:53 adelamarre Exp $
+<?php // $Id: install.php,v 1.2 2010/04/26 23:49:58 adelamarre Exp $
 /**
  * This file replaces:
  *   * STATEMENTS section in db/install.xml
