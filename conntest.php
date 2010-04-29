@@ -1,11 +1,13 @@
-<?php // $Id: conntest.php,v 1.6 2010/04/14 15:21:30 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.7 2010/04/29 00:58:16 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');
 
+    global $USER, $PAGE, $OUTPUT;;
+
     require_login(SITEID, false);
 
-    if (!isadmin()) {
+    if (!is_siteadmin($USER->id)) {
         redirect($CFG->wwwroot);
     }
 
@@ -23,8 +25,17 @@
     $strtitle = get_string('connectiontesttitle', 'adobeconnect');
 
 
-    print_header_simple(format_string($strtitle));
-    print_simple_box_start('center', '100%');
+    $PAGE->set_pagetype('site-index');
+
+    $site = get_site();
+    $PAGE->set_course($site);
+    $PAGE->set_url('/mod/adobeconnect/locallib.php');
+    $PAGE->set_pagelayout('popup');
+    $PAGE->set_title('Adobe Connect Pro connection test');
+    $PAGE->set_heading('Adobe Connect Pro connection test');
+    echo $OUTPUT->header();
+
+    $OUTPUT->box_start();
 
     print_string('conntestintro', 'adobeconnect');
 
@@ -34,7 +45,6 @@
     echo '<input type="button" onclick="self.close();" value="' . get_string('closewindow') . '" />';
     echo '</center>';
 
-    print_simple_box_end();
-    print_footer('none');
+    $OUTPUT->box_end();
 
-?>
+    $OUTPUT->footer();

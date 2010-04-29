@@ -1,4 +1,4 @@
-<?php // $Id: assign.php,v 1.4 2010/04/26 23:49:55 adelamarre Exp $
+<?php // $Id: assign.php,v 1.5 2010/04/29 00:58:16 adelamarre Exp $
       // Script to assign users to contexts
 
     require_once(dirname(__FILE__) . '/../../config.php');

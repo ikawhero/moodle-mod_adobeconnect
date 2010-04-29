@@ -1,4 +1,4 @@
-<?php // $Id: join.php,v 1.5 2010/04/14 15:21:30 adelamarre Exp $
+<?php // $Id: join.php,v 1.6 2010/04/29 00:58:16 adelamarre Exp $
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/locallib.php');
 require_once(dirname(__FILE__).'/connect_class.php');

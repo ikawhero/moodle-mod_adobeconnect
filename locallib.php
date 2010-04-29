@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.9 2010/04/19 23:55:15 adelamarre Exp $
+<?php // $Id: locallib.php,v 1.10 2010/04/29 00:58:16 adelamarre Exp $
 require_once('connect_class.php');
 require_once('connect_class_dom.php');
 
@@ -22,7 +22,6 @@ define('ADOBE_MEETPERM_PRIVATE', 2); // means the meeting is private, and only r
 define('ADOBE_TMZ_LENGTH', 6);
 
 function adobe_connection_test($host = '', $port = 80, $username = '', $password = '', $httpheader = '', $emaillogin) {
-
     if (empty($host) or
         empty($port) or (0 == $port) or
         empty($username) or

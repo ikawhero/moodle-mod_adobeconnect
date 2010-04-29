@@ -1,4 +1,4 @@
-<?php // $Id: adobeconnect.php,v 1.5 2010/04/02 00:03:55 adelamarre Exp $
+<?php // $Id: adobeconnect.php,v 1.6 2010/04/29 00:58:16 adelamarre Exp $
 $string['actinbtngrp'] = '';
 $string['addparticipant'] = 'Add';
 $string['addpresenter']  = 'Add';

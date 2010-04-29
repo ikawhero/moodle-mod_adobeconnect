@@ -1,4 +1,4 @@
-<?php // $Id: backuplib.php,v 1.2 2010/04/26 23:49:55 adelamarre Exp $
+<?php // $Id: backuplib.php,v 1.3 2010/04/29 00:58:16 adelamarre Exp $
     function adobeconnect_backup_mods($bf,$preferences) {
 
         global $CFG;
