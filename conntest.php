@@ -1,4 +1,4 @@
-<?php // $Id: conntest.php,v 1.7 2010/04/29 00:58:16 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.8 2010/05/11 03:45:03 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');

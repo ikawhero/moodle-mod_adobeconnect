@@ -1,5 +1,5 @@
-<?php // $Id: access.php,v 1.3 2010/04/29 00:58:16 adelamarre Exp $
-$mod_adobeconnect_capabilities = array(
+<?php // $Id: access.php,v 1.4 2010/05/11 03:45:03 adelamarre Exp $
+$capabilities = array(
     'mod/adobeconnect:meetingpresenter' => array(
         'riskbitmask' => RISK_PERSONAL,
         'captype' => 'read',

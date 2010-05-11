@@ -1,10 +1,10 @@
-<?php // $Id: index.php,v 1.4 2010/04/29 00:58:16 adelamarre Exp $
+<?php // $Id: index.php,v 1.5 2010/05/11 03:45:03 adelamarre Exp $
 
 /**
  * This page lists all the instances of adobeconnect in a particular course
  *
  * @author  Your Name Akinsaya Delamarre (adelamarre@remote-learner.net)
- * @version $Id: index.php,v 1.4 2010/04/29 00:58:16 adelamarre Exp $
+ * @version $Id: index.php,v 1.5 2010/05/11 03:45:03 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
