@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.1.2.6 2010/04/26 23:45:09 adelamarre Exp $
+<?php  // $Id: lib.php,v 1.1.2.7 2010/05/26 16:48:40 adelamarre Exp $
 
 require_once('locallib.php');
 
@@ -34,6 +34,7 @@ $adobeconnect_EXAMPLE_CONSTANT = 42;     /// for example
 function adobeconnect_add_instance($adobeconnect) {
 
     global $COURSE, $USER;
+
     $adobeconnect->timecreated = time();
     $return = false;
     $meeting = new stdClass();
@@ -192,7 +193,6 @@ function adobeconnect_add_instance($adobeconnect) {
 //    print_object('---');
 //    print_object($COURSE);
 //    die();
-
 
     return $recid;
 }

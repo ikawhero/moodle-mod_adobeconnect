@@ -1,10 +1,10 @@
-<?php  // $Id: view.php,v 1.1.2.8 2010/04/14 16:25:53 adelamarre Exp $
+<?php  // $Id: view.php,v 1.1.2.9 2010/05/26 16:48:40 adelamarre Exp $
 
 /**
  * This page prints a particular instance of adobeconnect
  *
  * @author  Your Name <adelamarre@remote-learner.net>
- * @version $Id: view.php,v 1.1.2.8 2010/04/14 16:25:53 adelamarre Exp $
+ * @version $Id: view.php,v 1.1.2.9 2010/05/26 16:48:40 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
@@ -202,10 +202,10 @@ if (($formdata = data_submitted($CFG->wwwroot . '/mod/adobeconnect/view.php')) &
 
     // Edit participants
     if (isset($formdata->participants)) {
-//        $context = get_context_instance(CONTEXT_MODULE, $id);
+        $context = get_context_instance(CONTEXT_MODULE, $id);
         // Using course context because we want the assign page to use that context
         // Otherwise the user would have to re-assign users for every activity instance
-        $context = get_context_instance(CONTEXT_COURSE, $course->id);
+        //$context = get_context_instance(CONTEXT_COURSE, $course->id);
 
         $roleid = get_field('role', 'id', 'shortname', 'adobeconnectpresenter');
 
