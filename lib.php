@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.1.2.7 2010/05/26 16:48:40 adelamarre Exp $
+<?php  // $Id: lib.php,v 1.1.2.8 2010/05/28 16:19:06 adelamarre Exp $
 
 require_once('locallib.php');
 
@@ -42,7 +42,7 @@ function adobeconnect_add_instance($adobeconnect) {
     // Assign the current user with the Adobe Presenter role
     $context = get_context_instance(CONTEXT_COURSE, $adobeconnect->course);
 
-    if (!has_capability('mod/adobeconnect:meetinghost', $context, $USER->id)) {
+    if (!has_capability('mod/adobeconnect:meetinghost', $context, $USER->id, false)) {
         $roleid = get_field('role', 'id', 'shortname', 'adobeconnecthost');
 
         if (role_assign($roleid, $USER->id, 0, $context->id)) {
