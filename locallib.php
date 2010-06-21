@@ -1,4 +1,4 @@
-<?php // $Id: locallib.php,v 1.1.2.10 2010/04/19 23:53:42 adelamarre Exp $
+<?php // $Id: locallib.php,v 1.1.2.11 2010/06/21 13:52:16 adelamarre Exp $
 require_once('connect_class.php');
 require_once('connect_class_dom.php');
 
@@ -553,9 +553,19 @@ function aconnect_return_all_templates($xml) {
 function aconnect_get_recordings($aconnect, $folderscoid, $sourcescoid) {
     $params = array('action' => 'sco-contents',
                     'sco-id' => $folderscoid,
-                    'filter-source-sco-id' => $sourcescoid,
+                    //'filter-source-sco-id' => $sourcescoid,
                     'sort-name' => 'asc',
                     );
+
+    // Check if meeting scoid and folder scoid are the same
+    // If hey are the same then that means that forced recordings is not
+    // enabled filter-source-sco-id should not be included.  If they the
+    // meeting scoid and folder scoid are not equal then forced recordings
+    // are enabled and we can use filter by filter-source-sco-id
+    // Thanks to A. gtdino
+    if ($sourcescoid != $folderscoid) {
+        $params['filter-source-sco-id'] = $sourcescoid;
+    }
 
     $aconnect->create_request($params);
 
