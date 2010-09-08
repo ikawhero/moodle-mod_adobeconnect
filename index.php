@@ -1,10 +1,10 @@
-<?php // $Id: index.php,v 1.1.2.6 2010/04/02 00:12:15 adelamarre Exp $
+<?php // $Id: index.php,v 1.1.2.7 2010/09/08 16:09:09 adelamarre Exp $
 
 /**
  * This page lists all the instances of adobeconnect in a particular course
  *
  * @author  Akinsaya Delamarre (adelamarre@remote-learner.net)
- * @version $Id: index.php,v 1.1.2.6 2010/04/02 00:12:15 adelamarre Exp $
+ * @version $Id: index.php,v 1.1.2.7 2010/09/08 16:09:09 adelamarre Exp $
  * @package mod/adobeconnect
  */
 
@@ -43,7 +43,7 @@ print_header_simple($stradobeconnects, '', $navigation, '', '', true, '', navmen
 /// Get all the appropriate data
 
 if (! $adobeconnects = get_all_instances_in_course('adobeconnect', $course)) {
-    notice('There are no instances of adobeconnect', "../../course/view.php?id=$course->id");
+    notice(get_string('noinstances', 'adobeconnect'), "../../course/view.php?id=$course->id");
     die;
 }
 

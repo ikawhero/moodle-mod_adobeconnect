@@ -1,4 +1,4 @@
-<?php // $Id: join.php,v 1.1.2.8 2010/05/28 16:19:06 adelamarre Exp $
+<?php // $Id: join.php,v 1.1.2.9 2010/09/08 16:09:09 adelamarre Exp $
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/locallib.php');
 require_once(dirname(__FILE__).'/connect_class.php');
@@ -166,14 +166,14 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
         }
     } else {
         $validuser = false;
-        notice('Unable to retrieve meeting details');
+        notice(get_string('unableretrdetails', 'adobeconnect'));
     }
 
     aconnect_logout($aconnect);
 
     // User is either valid or invalid, if valid redirect user to the meeting url
     if (empty($validuser)) {
-        notice('You are not a participant for this meeting');
+        notice(get_string('notparticipant', 'adobeconnect'));
     } else {
 
         $login = $usrobj->username;
@@ -193,6 +193,6 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
                  . '?session=' . $aconnect->get_cookie());
     }
 } else {
-    notice('Only users enrolled and have a role in this course can join this meeting');
+    notice(get_string('usernotenrolled', 'adobeconnect'));
 }
 ?>

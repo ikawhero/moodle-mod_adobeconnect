@@ -1,4 +1,4 @@
-<?php //$Id: mod_form.php,v 1.1.2.4 2010/03/17 20:13:40 adelamarre Exp $
+<?php //$Id: mod_form.php,v 1.1.2.5 2010/09/08 16:09:09 adelamarre Exp $
 
 /**
  * This file defines the main adobeconnect configuration form
@@ -67,7 +67,7 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         $mform->disabledIf('meeturl', 'tempenable', 'eq', 0);
 
         // Public or private meeting
-        $meetingpublic = array(1 => 'Public', 0 => 'Private');
+        $meetingpublic = array(1 => get_string('public', 'adobeconnect'), 0 => get_string('private', 'adobeconnect'));
         $mform->addElement('select', 'meetingpublic', get_string('meetingtype', 'adobeconnect'), $meetingpublic);
         $mform->setHelpButton('meetingpublic', array('meetingtype', get_string('meetingtype', 'adobeconnect'), 'adobeconnect'));
 
