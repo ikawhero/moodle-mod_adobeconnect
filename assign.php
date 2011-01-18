@@ -1,4 +1,4 @@
-<?php // $Id: assign.php,v 1.1.2.4 2010/03/17 20:13:39 adelamarre Exp $
+<?php // $Id: assign.php,v 1.1.2.5 2011/01/18 15:25:13 adelamarre Exp $
       // Script to assign users to contexts
 
     require_once('../../config.php');
@@ -99,6 +99,8 @@
     $coursegroups = array();
     if (!empty($groupid)) {
         $groups = groups_get_all_groups($courseid);
+
+        $groups = empty($groups) ? array() : $groups;
 
         foreach($groups as $key => $data) {
             $coursegroups[$key] = format_string($data->name, true, $courseid);
@@ -315,7 +317,7 @@
         $strheading->role = format_string($assignableroles[$roleid]);
         $strheading->meetname = format_string($adobeconnect->name);
 
-        if (!empty($groupid)) {
+        if (!empty($groupid) and !empty($groups)) {
             $strheading->groupname = format_string($groups[$groupid]->name);
         } else {
             $strheading->groupname = get_string('allusers', 'adobeconnect');
