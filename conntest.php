@@ -1,4 +1,4 @@
-<?php // $Id: conntest.php,v 1.1.2.5 2010/04/14 15:25:58 adelamarre Exp $
+<?php // $Id: conntest.php,v 1.1.2.6 2011/04/05 15:27:02 adelamarre Exp $
 
     require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
     require_once(dirname(__FILE__) . '/locallib.php');
@@ -19,6 +19,13 @@
     $password   = required_param('authPassword', PARAM_NOTAGS);
     $httpheader = required_param('authHTTPheader', PARAM_NOTAGS);
     $emaillogin = required_param('authEmaillogin', PARAM_INT);
+    $https      = optional_param('authHTTPS', 'false', PARAM_ALPHA);
+
+    if (false === strpos($https, 'false')) {
+        $https = true;
+    } else {
+        $https = false;
+    }
 
     $strtitle = get_string('connectiontesttitle', 'adobeconnect');
 
@@ -28,7 +35,7 @@
 
     print_string('conntestintro', 'adobeconnect');
 
-    adobe_connection_test($serverhost, $port, $username, $password, $httpheader, $emaillogin);
+    adobe_connection_test($serverhost, $port, $username, $password, $httpheader, $emaillogin, $https);
 
     echo '<center>'. "\n";
     echo '<input type="button" onclick="self.close();" value="' . get_string('closewindow') . '" />';

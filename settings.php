@@ -1,4 +1,4 @@
-<?php // $Id: settings.php,v 1.1.2.7 2010/05/26 16:48:40 adelamarre Exp $
+<?php // $Id: settings.php,v 1.1.2.8 2011/04/05 15:27:03 adelamarre Exp $
 require_once($CFG->dirroot . '/mod/adobeconnect/locallib.php');
 require_js($CFG->wwwroot . '/mod/adobeconnect/testserverconnection.js');
 
@@ -22,6 +22,9 @@ $settings->add(new admin_setting_configtext('adobeconnect_admin_httpauth', get_s
 
 $settings->add(new admin_setting_configcheckbox('adobeconnect_email_login', get_string('email_login', 'adobeconnect'),
                    get_string('email_login_desc', 'adobeconnect'), '0'));
+
+$settings->add(new admin_setting_configcheckbox('adobeconnect_https', get_string('https', 'adobeconnect'),
+                   get_string('https_desc', 'adobeconnect'), '0'));
 
 
 //$settings->add(new admin_setting_configcheckbox('adobeconnect_record_force', get_string('record_force', 'adobeconnect'),

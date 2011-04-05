@@ -1,4 +1,4 @@
-<?php // $Id: adobeconnect.php,v 1.1.2.8 2010/09/08 16:09:09 adelamarre Exp $
+<?php // $Id: adobeconnect.php,v 1.1.2.9 2011/04/05 15:27:03 adelamarre Exp $
 $string['actinbtngrp'] = '';
 $string['addparticipant'] = 'Add';
 $string['addpresenter']  = 'Add';
@@ -83,6 +83,8 @@ $string['adobeconnect:meetingparticipant'] = 'Meeting Particpant';
 $string['adobeconnect:meetinghost'] = 'Meeting Host';
 $string['public'] = 'Public';
 $string['private'] = 'Private';
+$string['https'] = 'HTTPS Connection';
+$string['https_desc'] = 'Connect to the Connect server via HTTPS';
 
 // Error codes
 $string['emptyxml'] = 'Unable to connect to the Adobe Connect Pro server at this time.  Please inform your Moodle administrator.';

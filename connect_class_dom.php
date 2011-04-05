@@ -1,11 +1,13 @@
-<?php // $Id: connect_class_dom.php,v 1.1.2.3 2010/04/14 00:48:46 adelamarre Exp $
+<?php // $Id: connect_class_dom.php,v 1.1.2.4 2011/04/05 15:27:02 adelamarre Exp $
 
 require_once('connect_class.php');
 
 class connect_class_dom extends connect_class {
 
-    public function __construct($serverurl = '', $serverport = '', $username = '', $password = '', $cookie = '') {
-        parent::__construct($serverurl, $serverport, $username, $password, $cookie);
+    public function __construct($serverurl = '', $serverport = '',
+                                $username = '', $password = '',
+                                $cookie = '', $https) {
+        parent::__construct($serverurl, $serverport, $username, $password, $cookie, $https);
     }
 
     public function create_request($params = array(), $sentrequest = true) {

@@ -1,4 +1,4 @@
-<?php // $Id: join.php,v 1.1.2.9 2010/09/08 16:09:09 adelamarre Exp $
+<?php // $Id: join.php,v 1.1.2.10 2011/04/05 15:27:02 adelamarre Exp $
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/locallib.php');
 require_once(dirname(__FILE__).'/connect_class.php');
@@ -176,9 +176,18 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
         notice(get_string('notparticipant', 'adobeconnect'));
     } else {
 
+        $protocol = 'http://';
+        $https = false;
         $login = $usrobj->username;
 
-        $aconnect = new connect_class_dom($CFG->adobeconnect_host, $CFG->adobeconnect_port);
+        if (isset($CFG->adobeconnect_https) and (!empty($CFG->adobeconnect_https))) {
+
+            $protocol = 'https://';
+            $https = true;
+        }
+
+        $aconnect = new connect_class_dom($CFG->adobeconnect_host, $CFG->adobeconnect_port,
+                                          '', '', '', $https);
         $aconnect->request_http_header_login(1, $login);
 
         // Include the port number only if it is a port other than 80
@@ -188,7 +197,7 @@ if ($usrcanjoin and confirm_sesskey($sesskey)) {
             $port = ':' . $CFG->adobeconnect_port;
         }
 
-        redirect('http://' . $CFG->adobeconnect_meethost . $port
+        redirect($protocol . $CFG->adobeconnect_meethost . $port
                  . $meeting->url
                  . '?session=' . $aconnect->get_cookie());
     }
