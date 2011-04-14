@@ -128,7 +128,7 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         }
 
         // Now search for existing meeting room URLs
-        $url = $data['meeturl'];
+        $url = $data['meeturl'] = adobeconnect_clean_meet_url($data['meeturl']);
 
         // Check to see if there are any trailing slashes or additional parts to the url
         // ex. mymeeting/mysecondmeeting/  Only the 'mymeeting' part is valid
