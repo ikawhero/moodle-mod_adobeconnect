@@ -79,8 +79,10 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         $mform->setType('type', PARAM_INT);
 
         // Start and end date selectors
+        $starttime = time();
         $mform->addElement('date_time_selector', 'starttime', get_string('starttime', 'adobeconnect'));
         $mform->addElement('date_time_selector', 'endtime', get_string('endtime', 'adobeconnect'));
+        $mform->setDefault('endtime', strtotime('+2 hours', $starttime));
 
 
 //-------------------------------------------------------------------------------
