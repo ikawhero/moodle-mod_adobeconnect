@@ -70,6 +70,7 @@ function adobeconnect_add_instance($adobeconnect) {
     global $COURSE, $USER, $DB;
 
     $adobeconnect->timecreated = time();
+    $adobeconnect->meeturl = adobeconnect_clean_meet_url($adobeconnect->meeturl);
     $return = false;
     $meeting = new stdClass();
 
@@ -544,4 +545,17 @@ function adobeconnect_scale_used_anywhere($scaleid) {
     } else {
         return false;
     }
+}
+
+
+/**
+ * Meeting URLs need to start with an alpha then be alphanumeric
+ * or hyphen('-')
+ *
+ * @param string $meeturl Incoming URL
+ * @return string cleaned URL
+ */
+function adobeconnect_clean_meet_url($meeturl) {
+    $meeturl = preg_replace ('/[^a-z0-9]/i', '-', $meeturl);
+    return $meeturl;
 }
