@@ -155,7 +155,7 @@ class mod_adobeconnect_mod_form extends moodleform_mod {
         // Check URL for correct length and format
         if (strlen($data['meeturl']) > 60) {
             $errors['meeturl'] = get_string('longurl', 'adobeconnect');
-        } elseif (!preg_match('/^[a-z][^a-z0-9]/i', $data['meeturl'])) {
+        } elseif (!preg_match('/^[a-z][a-z\-]*/i', $data['meeturl'])) {
             $errors['meeturl'] = get_string('invalidurl', 'adobeconnect');
         }
 
