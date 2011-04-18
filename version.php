@@ -1,4 +1,4 @@
-<?php // $Id: version.php,v 1.12 2011/01/11 14:34:56 adelamarre Exp $
+<?php // $Id: version.php,v 1.13 2011/04/06 14:23:51 adelamarre Exp $
 
 /**
  * @package mod
