@@ -48,11 +48,7 @@
     $ac->https = $DB->get_field('config', 'value', $param);
 
     foreach ($ac as $propertyname => $propertyvalue) {
-
-        if (0 != strcmp($propertyname, 'emaillogin') and
-            empty($propertyvalue)) {
-//no-reply@remote-learner.net
-            //$url = $CFG->wwwroot . '/admin/settings.php?section=modsettingadobeconnect';
+        if (!isset($propertyvalue)) {
             print_error('error2', 'adobeconnect', '', $propertyname);
             die();
         }
