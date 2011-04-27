@@ -131,10 +131,11 @@ function adobeconnect_add_instance($adobeconnect) {
             $meeting->name = $adobeconnect->name . '_' . $crsgroup->name;
 
             if (!empty($adobeconnect->meeturl)) {
-                $meeting->meeturl = $adobeconnect->meeturl   . '_' . $crsgroup->name;
+                $meeting->meeturl = adobeconnect_clean_meet_url($adobeconnect->meeturl   . '_' . $crsgroup->name);
             }
-
-            $meetingscoid = aconnect_create_meeting($aconnect, $meeting, $meetfldscoid);
+            if (!$meetingscoid = aconnect_create_meeting($aconnect, $meeting, $meetfldscoid)) {
+                debugging('error creating meeting', DEBUG_DEVELOPER);
+            }
 
             // Update permissions for meeting
             if (empty($adobeconnect->meetingpublic)) {
