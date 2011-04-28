@@ -538,14 +538,7 @@ function adobeconnect_scale_used($adobeconnectid, $scaleid) {
  * @return boolean True if the scale is used by any adobeconnect
  */
 function adobeconnect_scale_used_anywhere($scaleid) {
-    global $DB;
-
-    $param = array('grade' => $scaleid);
-    if ($scaleid and $DB->record_exists('adobeconnect', $param)) {
-        return true;
-    } else {
-        return false;
-    }
+    return false;
 }
 
 
